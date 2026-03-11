@@ -1,0 +1,9 @@
+--main-color: #1D1D1D;
+--sub-color: #C2A275;
+--footer-color: #E3DBCC;
+
+linear-color
+#E7DBC5
+#DFD3BD
+#DBCFB8
+#D8CAB4
