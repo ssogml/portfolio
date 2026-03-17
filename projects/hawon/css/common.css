@@ -28,6 +28,8 @@ body{ font-family: var(--main-font), sans-serif; font-size: 1.6rem; line-height:
 #header .gnb > li > .roll .back{ transform: translateY(30px); }
 #header .gnb > li:hover > .roll .front{ transform: translateY(-30px); }
 #header .gnb > li:hover > .roll .back{ transform: translateY(0); color: var(--main-color); }
+#header .gnb > li:nth-child(3):hover, #header .gnb > li:nth-child(4):hover{ opacity: 0.4; }
+
 
 #header .gnb > li .depth2{ display: none; position: absolute; z-index: 10; padding-top: 10px; left: 50%; transform: translateX(-50%); padding-top: 10px; width: 180px; align-items: center; transition: all 0.5s; }
 #header .gnb > li .depth2 > li > a{ display: inline-block; padding: 5px 0; font-size: 1.8rem; position: relative; }
@@ -41,6 +43,10 @@ body{ font-family: var(--main-font), sans-serif; font-size: 1.6rem; line-height:
 #header .util .btn_search{ display: inline-block; background: url(../image/common/btn_search.png)no-repeat center / contain; font-size: 0; cursor: pointer; width: 24px; height: 24px; }
 #header .util .btn_order{ display: inline-block; background: url(../image/common/btn_order.png)no-repeat center / contain; font-size: 0; cursor: pointer; width: 24px; height: 24px; }
 #header .util .btn_mypage{ display: inline-block; background: url(../image/common/btn_mypage.png)no-repeat center / contain; font-size: 0; cursor: pointer; width: 24px; height: 24px; }
+
+#header .util .btn_search:hover{ opacity: 0.4; }
+#header .util .btn_order:hover{ opacity: 0.4; }
+#header .util .btn_mypage:hover{ opacity: 0.4; }
 
 /* mgnb */
 #header .btn_menu{ display: none; position: absolute; right: 20px; top: 35px; background: transparent; cursor: pointer; z-index: 120; }
@@ -76,6 +82,7 @@ body{ font-family: var(--main-font), sans-serif; font-size: 1.6rem; line-height:
 }
 
 @media (max-width: 1070px) {
+  #header h1 img{ width: 120px; }
   #header .gnb{ display: none; }
   #header .util{ display: none; }
   #header .btn_menu{ display: block; }
@@ -87,11 +94,11 @@ body{ font-family: var(--main-font), sans-serif; font-size: 1.6rem; line-height:
 }
 
 @media (max-width: 650px) {
-  #header h1 img{ width: 120px; }
+  #header h1 img{ width: 100px; }
 }
 
 /* footer */
-#footer{ background: #E3DBCC; color: #666; }
+#footer{ background: #E3DBCC; color: #666; word-break: keep-all; }
 #footer .inner{ display: flex; justify-content: space-between; padding: 100px 0; align-items: center; }
 #footer .inner h1{ padding-bottom: 50px; }
 #footer .footer_left{ padding-left: 60px; }

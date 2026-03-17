@@ -1,5 +1,5 @@
 // gnb
-const DEPTH_BG_H = 280;
+const DEPTH_BG_H = 380;
 
 // bg 속도
 const BG_IN = 180;
