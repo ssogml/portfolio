@@ -18,6 +18,7 @@ section h3{ font-family: var(--sub-font); font-size: 6.5rem; font-weight: 800; -
 .btn_more > a:hover .arrow{ transform: translateY(-50%) rotate(45deg); filter: invert(1); }
 
 
+
 @media (max-width: 1540px) {
   section h2{ font-size: 7rem; line-height: 1.2; }
   section h3{ font-size: 5rem; }
@@ -95,6 +96,9 @@ section h3{ font-family: var(--sub-font); font-size: 6.5rem; font-weight: 800; -
 .visual .visual_txt h1.split .space{ width: 30px; }
 .visual .visual_txt p{ color: rgba(38, 38, 38, 0.5); -webkit-text-stroke: 0.5px rgba(38, 38, 38, 0.5); z-index: 2; text-align: left; font-size: 2rem; }
 
+ @media(max-width: 1920px){
+  .visual .visual_txt h1.split{ font-size: 19rem; }
+ }
 
  @media (max-width: 1800px) {
   .visual .visual_txt h1.split{ font-size: 18.5rem; }
