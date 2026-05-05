@@ -2,7 +2,6 @@
 let lenis = new Lenis({ autoRaf: true });
 
 lenis.on("scroll", ScrollTrigger.update);
-gsap.ticker.add((time) => { lenis.raf(time * 1000); });
 gsap.ticker.lagSmoothing(0);
 
 // 새로고침 시 맨 위에서 시작
@@ -101,17 +100,19 @@ $(".gnb > li").hover(function () {
 $(".mgnb_wrap").hide();
 
 $(".btn_ham").click(function () {
-    $("body").toggleClass("intro-lock");
+    let isOpen = $(".mgnb_wrap").is(":visible");
 
-    let txt = $(".btn_ham span").text();
-    if (txt === "Menu") {
-        $(".btn_ham span").text("Close").addClass("active");
+    if (isOpen) {
+        $("body").removeClass("intro-lock");
+        $(".btn_ham > span:first-child").text("Menu").removeClass("active");
+        $("#header h1").removeClass("active");
+        $(".mgnb_wrap").fadeOut();
     } else {
-        $(".btn_ham span").text("Menu").removeClass("active");
+        $("body").addClass("intro-lock");
+        $(".btn_ham > span:first-child").text("Close").addClass("active");
+        $("#header h1").addClass("active");
+        $(".mgnb_wrap").fadeIn();
     }
-    $(".ham_bg").toggleClass("active");
-    $("#header h1").toggleClass("active");
-    $(".mgnb_wrap").fadeToggle();
 });
 
 $(".mgnb > li").on("mouseenter", function () {
@@ -121,11 +122,10 @@ $(".mgnb > li").on("mouseenter", function () {
 });
 
 $(".mgnb a").on("click", function () {
-    $(".mgnb_wrap").fadeOut();
-    $(".ham_bg").removeClass("active");
-    $("#header h1").removeClass("active");
-    $(".btn_ham span").text("Menu").removeClass("active");
     $("body").removeClass("intro-lock");
+    $(".btn_ham > span:first-child").text("Menu").removeClass("active");
+    $("#header h1").removeClass("active");
+    $(".mgnb_wrap").fadeOut();
 });
 
 
@@ -157,10 +157,8 @@ ScrollTrigger.create({
   }
 });
 
-$(window).scroll(function () {
-    let scrollposition = $(this).scrollTop();
-
-    if (scrollposition > 150) {
+lenis.on("scroll", ({ scroll }) => {
+    if (scroll > 150) {
         $("#header").addClass("active");
     } else {
         $("#header").removeClass("active");

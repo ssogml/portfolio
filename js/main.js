@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
 
     const tl_02 = gsap.timeline({
         scrollTrigger: {
@@ -94,7 +92,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
         );
     }
 
-    fadeIn(".projects h2", { x: -80 });
     fadeIn(".pj-left .pj_thumb", { x: 80 });
     fadeIn(".pj-left .pj_txt", { y: 50, delay: 0.2 });
     fadeIn(".pj-right .pj_thumb", { x: -80 });
@@ -130,37 +127,39 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 
     /* ---------- vision SplitText ---------- */
-    document.fonts.ready.then(() => {
-        gsap.set(".vision p", { opacity: 1 });
+    if (typeof SplitText !== "undefined") {
+        document.fonts.ready.then(() => {
+            gsap.set(".vision p", { opacity: 1 });
 
-        let split;
+            let split;
 
-        ScrollTrigger.create({
-            trigger: ".vision",
-            start: "top 80%",
-            once: true,
-            onEnter: () => {
-                if (split) return;
+            ScrollTrigger.create({
+                trigger: ".vision",
+                start: "top 80%",
+                once: true,
+                onEnter: () => {
+                    if (split) return;
 
-                SplitText.create(".vision p", {
-                    type: "words,lines",
-                    linesClass: "line",
-                    autoSplit: true,
-                    mask: "lines",
-                    onSplit: (self) => {
-                        split = gsap.from(self.lines, {
-                            duration: 1.2,
-                            yPercent: 100,
-                            opacity: 0,
-                            stagger: 0.2,
-                            ease: "expo.out"
-                        });
-                        return split;
-                    }
-                });
-            }
+                    SplitText.create(".vision p", {
+                        type: "words,lines",
+                        linesClass: "line",
+                        autoSplit: true,
+                        mask: "lines",
+                        onSplit: (self) => {
+                            split = gsap.from(self.lines, {
+                                duration: 1.2,
+                                yPercent: 100,
+                                opacity: 0,
+                                stagger: 0.2,
+                                ease: "expo.out"
+                            });
+                            return split;
+                        }
+                    });
+                }
+            });
         });
-    });
+    }
 
     /* gd */
 const gd_list = new Swiper(".gd_list", {
